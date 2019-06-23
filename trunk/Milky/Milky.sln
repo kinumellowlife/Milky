@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29001.49
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Milky", "Milky\Milky.csproj", "{A56F7E47-0E57-46FF-B024-72EB5B5ECFAC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MilkyTestApp", "MilkyTestApp\MilkyTestApp.csproj", "{8D967F22-063C-40B6-BAAB-09100AF204E8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A56F7E47-0E57-46FF-B024-72EB5B5ECFAC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A56F7E47-0E57-46FF-B024-72EB5B5ECFAC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A56F7E47-0E57-46FF-B024-72EB5B5ECFAC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A56F7E47-0E57-46FF-B024-72EB5B5ECFAC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8D967F22-063C-40B6-BAAB-09100AF204E8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8D967F22-063C-40B6-BAAB-09100AF204E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8D967F22-063C-40B6-BAAB-09100AF204E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8D967F22-063C-40B6-BAAB-09100AF204E8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A1EBA659-D6B2-4752-B443-1ECB292BCB06}
+	EndGlobalSection
+EndGlobal
