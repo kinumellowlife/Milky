@@ -1,8 +1,12 @@
 ﻿namespace Milky.Algorithm
 {
+	/// <summary>
+	/// シングルトンクラス生成用クラス
+	/// </summary>
+	/// <typeparam name="T"></typeparam>
 	public class Singleton<T> where T : new()
 	{
-		#region 構築
+		#region construction
 
 		/// <summary>
 		/// コンストラクタ
@@ -11,9 +15,9 @@
 		{
 		}
 
-		#endregion 構築
+		#endregion construction
 
-		#region 操作
+		#region public API
 
 		/// <summary>
 		/// シングルトンインスタンスの取得
@@ -29,7 +33,7 @@
 			}
 		}
 
-		#endregion 操作
+		#endregion public API
 
 		/// <summary>
 		/// シングルトンのクリエイター

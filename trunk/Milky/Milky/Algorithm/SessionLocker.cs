@@ -3,10 +3,16 @@ using System.Threading;
 
 namespace Milky.Algorithm
 {
+	/// <summary>
+	/// Mutexを利用したロック機構
+	/// </summary>
 	public class SessionLocker : IDisposable
 	{
 		#region fields
 
+		/// <summary>
+		/// ロック用ミューテックス
+		/// </summary>
 		private Mutex mx;
 
 		#endregion fields

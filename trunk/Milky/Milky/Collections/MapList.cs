@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Milky.Collections
 {
@@ -13,7 +10,6 @@ namespace Milky.Collections
 	/// <typeparam name="TValue">格納する要素の型</typeparam>
 	public class MapList<TKey, TValue>
 	{
-
 		#region fields
 
 		/// <summary>検索用のマップ</summary>

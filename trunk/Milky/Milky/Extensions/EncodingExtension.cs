@@ -1,13 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Text;
 
 namespace Milky.Extensions
 {
 	public static class EncodingExtension
 	{
+		/// <summary>
+		/// 指定バイト列のエンコーディング情報を調べる
+		/// </summary>
+		/// <param name="byts">文字列の入ったバイト配列</param>
+		/// <returns>エンコーディング情報</returns>
 		public static Encoding GetEncoding(this byte[] byts)
 		{
 			const byte bESC = 0x1B;
