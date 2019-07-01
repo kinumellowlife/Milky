@@ -64,6 +64,7 @@
     <Compile Include="Extensions\ByteExtension.cs" />
     <Compile Include="Extensions\DateTimeExtension.cs" />
     <Compile Include="Extensions\EncodingExtension.cs" />
+    <Compile Include="Extensions\ImageExtension.cs" />
     <Compile Include="Extensions\ListExtension.cs" />
     <Compile Include="Extensions\NumberExtension.cs" />
     <Compile Include="Extensions\PointExtension.cs" />
