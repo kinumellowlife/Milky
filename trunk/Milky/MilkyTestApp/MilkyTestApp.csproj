@@ -66,6 +66,12 @@
     <Compile Include="UI\FCheckBoxTest.Designer.cs">
       <DependentUpon>FCheckBoxTest.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\FMilkyControls.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\FMilkyControls.Designer.cs">
+      <DependentUpon>FMilkyControls.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="FMain.resx">
       <DependentUpon>FMain.cs</DependentUpon>
     </EmbeddedResource>
@@ -83,6 +89,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\FCheckBoxTest.resx">
       <DependentUpon>FCheckBoxTest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\FMilkyControls.resx">
+      <DependentUpon>FMilkyControls.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

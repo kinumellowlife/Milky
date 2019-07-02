@@ -29,9 +29,9 @@
 		private void InitializeComponent()
 		{
 			this.StartThreadButton = new System.Windows.Forms.Button();
-			this.milkyButton1 = new Milky.Windows.Forms.MilkyButton();
-			this.milkyCheckBox1 = new Milky.Windows.Forms.MilkyCheckBox();
 			this.milkyCheckBox2 = new Milky.Windows.Forms.MilkyCheckBox();
+			this.milkyCheckBox1 = new Milky.Windows.Forms.MilkyCheckBox();
+			this.milkyButton1 = new Milky.Windows.Forms.MilkyButton();
 			this.SuspendLayout();
 			// 
 			// StartThreadButton
@@ -45,14 +45,16 @@
 			this.StartThreadButton.UseVisualStyleBackColor = true;
 			this.StartThreadButton.Click += new System.EventHandler(this.StartThreadButton_Click);
 			// 
-			// milkyButton1
+			// milkyCheckBox2
 			// 
-			this.milkyButton1.Location = new System.Drawing.Point(12, 12);
-			this.milkyButton1.Name = "milkyButton1";
-			this.milkyButton1.Size = new System.Drawing.Size(217, 23);
-			this.milkyButton1.TabIndex = 4;
-			this.milkyButton1.Text = "milkyButton1";
-			this.milkyButton1.UseVisualStyleBackColor = true;
+			this.milkyCheckBox2.AutoSize = true;
+			this.milkyCheckBox2.DefaultChecked = false;
+			this.milkyCheckBox2.Location = new System.Drawing.Point(12, 63);
+			this.milkyCheckBox2.Name = "milkyCheckBox2";
+			this.milkyCheckBox2.Size = new System.Drawing.Size(109, 16);
+			this.milkyCheckBox2.TabIndex = 5;
+			this.milkyCheckBox2.Text = "milkyCheckBox1";
+			this.milkyCheckBox2.UseVisualStyleBackColor = true;
 			// 
 			// milkyCheckBox1
 			// 
@@ -65,16 +67,14 @@
 			this.milkyCheckBox1.Text = "milkyCheckBox1";
 			this.milkyCheckBox1.UseVisualStyleBackColor = true;
 			// 
-			// milkyCheckBox2
+			// milkyButton1
 			// 
-			this.milkyCheckBox2.AutoSize = true;
-			this.milkyCheckBox2.DefaultChecked = false;
-			this.milkyCheckBox2.Location = new System.Drawing.Point(12, 63);
-			this.milkyCheckBox2.Name = "milkyCheckBox2";
-			this.milkyCheckBox2.Size = new System.Drawing.Size(109, 16);
-			this.milkyCheckBox2.TabIndex = 5;
-			this.milkyCheckBox2.Text = "milkyCheckBox1";
-			this.milkyCheckBox2.UseVisualStyleBackColor = true;
+			this.milkyButton1.Location = new System.Drawing.Point(12, 12);
+			this.milkyButton1.Name = "milkyButton1";
+			this.milkyButton1.Size = new System.Drawing.Size(217, 23);
+			this.milkyButton1.TabIndex = 4;
+			this.milkyButton1.Text = "milkyButton1";
+			this.milkyButton1.UseVisualStyleBackColor = true;
 			// 
 			// FBindTest
 			// 
@@ -86,6 +86,7 @@
 			this.Controls.Add(this.milkyButton1);
 			this.Controls.Add(this.StartThreadButton);
 			this.Name = "FBindTest";
+			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
 			this.Text = "Bind test";
 			this.ResumeLayout(false);
 			this.PerformLayout();

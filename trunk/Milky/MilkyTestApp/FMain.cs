@@ -37,5 +37,15 @@ namespace MilkyTestApp
 				this.Show();
 			}
 		}
+
+		private void MilkyControl_Click(object sender, EventArgs e)
+		{
+			using (var f = new UI.FMilkyControls())
+			{
+				this.Hide();
+				f.ShowDialog(this);
+				this.Show();
+			}
+		}
 	}
 }

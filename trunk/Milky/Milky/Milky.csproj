@@ -23,6 +23,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -31,6 +32,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.VisualBasic" />
@@ -59,6 +61,7 @@
     <Compile Include="Cmds\ICmdListener.cs" />
     <Compile Include="Collections\MapList.cs" />
     <Compile Include="Collections\TupleDictionary.cs" />
+    <Compile Include="Drawing\ImaeUtil.cs" />
     <Compile Include="Extensions\ArrayExtension.cs" />
     <Compile Include="Extensions\BcdExtension.cs" />
     <Compile Include="Extensions\ByteExtension.cs" />
@@ -105,6 +108,9 @@
     <Compile Include="Windows\Forms\MilkyNumericUpDown.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Windows\Forms\MilkyPrintPreview.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Windows\Forms\MilkyTextBox.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -133,7 +139,12 @@
     <Compile Include="Windows\Forms\MilkyListView.cs" />
     <Compile Include="Windows\Forms\MsgBox.cs" />
     <Compile Include="Windows\Forms\ControlBinder.cs" />
+    <Compile Include="Windows\Forms\PropertyAttributes\PropertyAttribute.cs" />
+    <Compile Include="Windows\Forms\PropertyAttributes\TypeConverter.cs" />
     <Compile Include="Windows\SingleApplicationBlocker.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Windows\Forms\Controls\Print\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

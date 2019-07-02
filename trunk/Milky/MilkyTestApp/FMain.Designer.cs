@@ -30,12 +30,13 @@
 		{
 			this.CheckBoxTestButton = new System.Windows.Forms.Button();
 			this.BindTest = new System.Windows.Forms.Button();
+			this.MilkyControl = new System.Windows.Forms.Button();
 			this.SuspendLayout();
 			// 
 			// CheckBoxTestButton
 			// 
 			this.CheckBoxTestButton.Font = new System.Drawing.Font("メイリオ", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-			this.CheckBoxTestButton.Location = new System.Drawing.Point(533, 197);
+			this.CheckBoxTestButton.Location = new System.Drawing.Point(137, 12);
 			this.CheckBoxTestButton.Name = "CheckBoxTestButton";
 			this.CheckBoxTestButton.Size = new System.Drawing.Size(129, 35);
 			this.CheckBoxTestButton.TabIndex = 0;
@@ -45,7 +46,7 @@
 			// 
 			// BindTest
 			// 
-			this.BindTest.Location = new System.Drawing.Point(382, 197);
+			this.BindTest.Location = new System.Drawing.Point(12, 12);
 			this.BindTest.Name = "BindTest";
 			this.BindTest.Size = new System.Drawing.Size(119, 35);
 			this.BindTest.TabIndex = 1;
@@ -53,11 +54,22 @@
 			this.BindTest.UseVisualStyleBackColor = true;
 			this.BindTest.Click += new System.EventHandler(this.BindTest_Click);
 			// 
+			// MilkyControl
+			// 
+			this.MilkyControl.Location = new System.Drawing.Point(12, 53);
+			this.MilkyControl.Name = "MilkyControl";
+			this.MilkyControl.Size = new System.Drawing.Size(119, 35);
+			this.MilkyControl.TabIndex = 1;
+			this.MilkyControl.Text = "MilkyControl";
+			this.MilkyControl.UseVisualStyleBackColor = true;
+			this.MilkyControl.Click += new System.EventHandler(this.MilkyControl_Click);
+			// 
 			// FMain
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(800, 450);
+			this.Controls.Add(this.MilkyControl);
 			this.Controls.Add(this.BindTest);
 			this.Controls.Add(this.CheckBoxTestButton);
 			this.Name = "FMain";
@@ -70,6 +82,7 @@
 
 		private System.Windows.Forms.Button CheckBoxTestButton;
 		private System.Windows.Forms.Button BindTest;
+		private System.Windows.Forms.Button MilkyControl;
 	}
 }
 
