@@ -87,7 +87,7 @@
 			this.Controls.Add(this.StartThreadButton);
 			this.Name = "FBindTest";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-			this.Text = "Bind test";
+			this.Text = "Bind";
 			this.ResumeLayout(false);
 			this.PerformLayout();
 

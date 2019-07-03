@@ -105,7 +105,7 @@
 			this.Controls.Add(this.milkyLabel2);
 			this.Name = "FMilkyControls";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-			this.Text = "FMilkyControls";
+			this.Text = "Milky Controls";
 			this.ResumeLayout(false);
 			this.PerformLayout();
 

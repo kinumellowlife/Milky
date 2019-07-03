@@ -105,6 +105,9 @@
     <Compile Include="Windows\DragMover.cs" />
     <Compile Include="Windows\FontPair.cs" />
     <Compile Include="Windows\Forms\ComboBoxAdapter.cs" />
+    <Compile Include="Windows\Forms\MilkyPictureBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Windows\Forms\MilkyNumericUpDown.cs">
       <SubType>Component</SubType>
     </Compile>

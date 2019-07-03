@@ -66,11 +66,23 @@
     <Compile Include="UI\FCheckBoxTest.Designer.cs">
       <DependentUpon>FCheckBoxTest.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\FImageTest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\FImageTest.Designer.cs">
+      <DependentUpon>FImageTest.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\FMilkyControls.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="UI\FMilkyControls.Designer.cs">
       <DependentUpon>FMilkyControls.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ImageTestPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\ImageTestPanel.Designer.cs">
+      <DependentUpon>ImageTestPanel.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="FMain.resx">
       <DependentUpon>FMain.cs</DependentUpon>
@@ -83,6 +95,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="UI\FBindTest.resx">
       <DependentUpon>FBindTest.cs</DependentUpon>
@@ -90,8 +103,14 @@
     <EmbeddedResource Include="UI\FCheckBoxTest.resx">
       <DependentUpon>FCheckBoxTest.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\FImageTest.resx">
+      <DependentUpon>FImageTest.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\FMilkyControls.resx">
       <DependentUpon>FMilkyControls.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\ImageTestPanel.resx">
+      <DependentUpon>ImageTestPanel.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -111,6 +130,9 @@
       <Project>{a56f7e47-0e57-46ff-b024-72eb5b5ecfac}</Project>
       <Name>Milky</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Images\sample.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

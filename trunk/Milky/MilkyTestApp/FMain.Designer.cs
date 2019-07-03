@@ -31,6 +31,7 @@
 			this.CheckBoxTestButton = new System.Windows.Forms.Button();
 			this.BindTest = new System.Windows.Forms.Button();
 			this.MilkyControl = new System.Windows.Forms.Button();
+			this.ImageTest = new System.Windows.Forms.Button();
 			this.SuspendLayout();
 			// 
 			// CheckBoxTestButton
@@ -64,11 +65,22 @@
 			this.MilkyControl.UseVisualStyleBackColor = true;
 			this.MilkyControl.Click += new System.EventHandler(this.MilkyControl_Click);
 			// 
+			// ImageTest
+			// 
+			this.ImageTest.Location = new System.Drawing.Point(137, 53);
+			this.ImageTest.Name = "ImageTest";
+			this.ImageTest.Size = new System.Drawing.Size(119, 35);
+			this.ImageTest.TabIndex = 1;
+			this.ImageTest.Text = "Image";
+			this.ImageTest.UseVisualStyleBackColor = true;
+			this.ImageTest.Click += new System.EventHandler(this.ImageTest_Click);
+			// 
 			// FMain
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(800, 450);
+			this.Controls.Add(this.ImageTest);
 			this.Controls.Add(this.MilkyControl);
 			this.Controls.Add(this.BindTest);
 			this.Controls.Add(this.CheckBoxTestButton);
@@ -83,6 +95,7 @@
 		private System.Windows.Forms.Button CheckBoxTestButton;
 		private System.Windows.Forms.Button BindTest;
 		private System.Windows.Forms.Button MilkyControl;
+		private System.Windows.Forms.Button ImageTest;
 	}
 }
 

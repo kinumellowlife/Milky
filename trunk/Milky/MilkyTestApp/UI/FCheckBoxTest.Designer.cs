@@ -635,9 +635,11 @@
 			this.Controls.Add(this.groupBox4);
 			this.Controls.Add(this.groupBox3);
 			this.Controls.Add(this.groupBox1);
+			this.MaximizeBox = false;
+			this.MinimizeBox = false;
 			this.Name = "FCheckBoxTest";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-			this.Text = "FCheckBoxTest";
+			this.Text = "CheckBox group";
 			this.groupBox1.ResumeLayout(false);
 			this.groupBox2.ResumeLayout(false);
 			this.groupBox3.ResumeLayout(false);

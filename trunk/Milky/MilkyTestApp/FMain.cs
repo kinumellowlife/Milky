@@ -47,5 +47,15 @@ namespace MilkyTestApp
 				this.Show();
 			}
 		}
+
+		private void ImageTest_Click(object sender, EventArgs e)
+		{
+			using (var f = new UI.FImageTest())
+			{
+				this.Hide();
+				f.ShowDialog(this);
+				this.Show();
+			}
+		}
 	}
 }
