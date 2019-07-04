@@ -105,6 +105,11 @@
     <Compile Include="Windows\DragMover.cs" />
     <Compile Include="Windows\FontPair.cs" />
     <Compile Include="Windows\Forms\ComboBoxAdapter.cs" />
+    <Compile Include="Windows\Forms\FormUtils.cs" />
+    <Compile Include="Windows\Forms\Jornal\MilkyLogItem.cs" />
+    <Compile Include="Windows\Forms\Jornal\MilkyLogListView.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Windows\Forms\MilkyPictureBox.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -112,6 +117,9 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Windows\Forms\MilkyPrintPreview.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Windows\Forms\MilkyRatioBar.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Windows\Forms\MilkyTextBox.cs">

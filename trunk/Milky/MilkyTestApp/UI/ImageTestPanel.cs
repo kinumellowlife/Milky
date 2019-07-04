@@ -73,7 +73,7 @@ namespace MilkyTestApp.UI
 					Pict.Image = OnGetImage(this.ValueTracBar.Value);
 				}
 			};
-		}	
+		}
 
 		private void ValueTracBar_ValueChanged(object sender, EventArgs e)
 		{

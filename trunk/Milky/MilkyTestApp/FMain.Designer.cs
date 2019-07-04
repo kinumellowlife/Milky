@@ -32,6 +32,7 @@
 			this.BindTest = new System.Windows.Forms.Button();
 			this.MilkyControl = new System.Windows.Forms.Button();
 			this.ImageTest = new System.Windows.Forms.Button();
+			this.ActionCenterButton = new System.Windows.Forms.Button();
 			this.SuspendLayout();
 			// 
 			// CheckBoxTestButton
@@ -69,17 +70,27 @@
 			// 
 			this.ImageTest.Location = new System.Drawing.Point(137, 53);
 			this.ImageTest.Name = "ImageTest";
-			this.ImageTest.Size = new System.Drawing.Size(119, 35);
+			this.ImageTest.Size = new System.Drawing.Size(129, 35);
 			this.ImageTest.TabIndex = 1;
 			this.ImageTest.Text = "Image";
 			this.ImageTest.UseVisualStyleBackColor = true;
 			this.ImageTest.Click += new System.EventHandler(this.ImageTest_Click);
+			// 
+			// ActionCenterButton
+			// 
+			this.ActionCenterButton.Location = new System.Drawing.Point(12, 94);
+			this.ActionCenterButton.Name = "ActionCenterButton";
+			this.ActionCenterButton.Size = new System.Drawing.Size(129, 35);
+			this.ActionCenterButton.TabIndex = 1;
+			this.ActionCenterButton.Text = "ActionCenter(Win10)";
+			this.ActionCenterButton.UseVisualStyleBackColor = true;
 			// 
 			// FMain
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(800, 450);
+			this.Controls.Add(this.ActionCenterButton);
 			this.Controls.Add(this.ImageTest);
 			this.Controls.Add(this.MilkyControl);
 			this.Controls.Add(this.BindTest);
@@ -96,6 +107,7 @@
 		private System.Windows.Forms.Button BindTest;
 		private System.Windows.Forms.Button MilkyControl;
 		private System.Windows.Forms.Button ImageTest;
+		private System.Windows.Forms.Button ActionCenterButton;
 	}
 }
 
