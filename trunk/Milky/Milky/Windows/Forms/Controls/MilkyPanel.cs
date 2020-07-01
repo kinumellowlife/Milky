@@ -5,7 +5,7 @@ using System.Drawing.Drawing2D;
 using System.Windows.Forms;
 using Milky.Algorithm;
 
-namespace Milky.Windows.Forms
+namespace Milky.Windows.Forms.Controls
 {
 	public class MilkyPanel : Panel, IControlBinder
 	{

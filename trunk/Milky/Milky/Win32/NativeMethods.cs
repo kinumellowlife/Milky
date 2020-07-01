@@ -1,20 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace Milky.Win32
 {
 	public static class NativeMethods
 	{
-
 		///<summary>Window Messages, added as requried</summary>
 		public enum Msgs : int
 		{
-
 			/// <summary></summary>
 			WM_KEYDOWN = 0x100,
 

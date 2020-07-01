@@ -96,63 +96,66 @@
     <Compile Include="Mathmatics\MT19937.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PropertyAttributes\PropertyGridAttributes.cs" />
+    <Compile Include="Win32\FileIcon.cs" />
     <Compile Include="Win32\Keyboard.cs" />
     <Compile Include="Win32\NativeMethods.cs" />
-    <Compile Include="Windows\Capture.cs" />
-    <Compile Include="Windows\CenterKeeper.cs" />
-    <Compile Include="Windows\ColorPair.cs" />
-    <Compile Include="Windows\ControlInvoker.cs" />
-    <Compile Include="Windows\DragMover.cs" />
-    <Compile Include="Windows\FontPair.cs" />
-    <Compile Include="Windows\Forms\ComboBoxAdapter.cs" />
+    <Compile Include="Win32\ShellLink.cs" />
+    <Compile Include="Windows\Forms\Capture.cs" />
+    <Compile Include="Windows\Forms\CenterKeeper.cs" />
+    <Compile Include="Windows\Forms\ColorPair.cs" />
+    <Compile Include="Windows\Forms\Controls\ControlInvoker.cs" />
+    <Compile Include="Windows\Forms\DragMover.cs" />
+    <Compile Include="Windows\Forms\FontPair.cs" />
+    <Compile Include="Windows\Forms\Controls\ComboBoxAdapter.cs" />
     <Compile Include="Windows\Forms\FormUtils.cs" />
     <Compile Include="Windows\Forms\Jornal\MilkyLogItem.cs" />
+    <Compile Include="Windows\Forms\Jornal\MilkyLogListItem.cs" />
     <Compile Include="Windows\Forms\Jornal\MilkyLogListView.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Windows\Forms\MilkyPictureBox.cs">
+    <Compile Include="Windows\Forms\Controls\MilkyPictureBox.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Windows\Forms\MilkyNumericUpDown.cs">
+    <Compile Include="Windows\Forms\Controls\MilkyNumericUpDown.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Windows\Forms\MilkyPrintPreview.cs">
+    <Compile Include="Windows\Forms\Controls\MilkyPrintPreview.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Windows\Forms\MilkyRatioBar.cs">
+    <Compile Include="Windows\Forms\Controls\MilkyRatioBar.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Windows\Forms\MilkyTextBox.cs">
+    <Compile Include="Windows\Forms\Controls\MilkyTextBox.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Windows\Forms\MilkyRadioButton.cs">
+    <Compile Include="Windows\Forms\Controls\MilkyRadioButton.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Windows\Forms\MilkyPanel.cs">
+    <Compile Include="Windows\Forms\Controls\MilkyPanel.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Windows\Forms\MilkyButton.cs">
+    <Compile Include="Windows\Forms\Controls\MilkyButton.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Windows\Forms\MilkyCheckBox.cs">
+    <Compile Include="Windows\Forms\Controls\MilkyCheckBox.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Windows\Forms\MilkyCheckBoxGroup.cs" />
+    <Compile Include="Windows\Forms\Controls\MilkyCheckBoxGroup.cs" />
     <Compile Include="PropertyAttributes\BinaryMapAttribute.cs" />
     <Compile Include="PropertyAttributes\DefinitionOrderTypeConverter.cs" />
-    <Compile Include="Windows\Forms\MilkyControlStyler.cs" />
-    <Compile Include="Windows\Forms\MilkyForm.cs">
+    <Compile Include="Windows\Forms\Controls\MilkyControlStyler.cs" />
+    <Compile Include="Windows\Forms\Controls\MilkyForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Windows\Forms\MilkyLabel.cs">
+    <Compile Include="Windows\Forms\Controls\MilkyLabel.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Windows\Forms\MilkyListView.cs" />
+    <Compile Include="Windows\Forms\Controls\MilkyListView.cs" />
     <Compile Include="Windows\Forms\MsgBox.cs" />
-    <Compile Include="Windows\Forms\ControlBinder.cs" />
+    <Compile Include="Windows\Forms\Controls\ControlBinder.cs" />
     <Compile Include="Windows\Forms\PropertyAttributes\PropertyAttribute.cs" />
     <Compile Include="Windows\Forms\PropertyAttributes\TypeConverter.cs" />
-    <Compile Include="Windows\SingleApplicationBlocker.cs" />
+    <Compile Include="Windows\Forms\SingleApplicationBlocker.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Windows\Forms\Controls\Print\" />

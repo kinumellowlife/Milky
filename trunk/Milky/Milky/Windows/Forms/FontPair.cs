@@ -2,7 +2,7 @@
 using System.Drawing;
 using Milky.Algorithm;
 
-namespace Milky.Windows
+namespace Milky.Windows.Forms
 {
 	public class FontPair : Pair<Font, Font>, INotifyPropertyChanged
 	{

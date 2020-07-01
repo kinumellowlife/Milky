@@ -5,7 +5,7 @@ using System.Reflection;
 using System.Windows.Forms;
 using Milky.Extensions;
 
-namespace Milky.Windows.Forms
+namespace Milky.Windows.Forms.Controls
 {
 	/// <summary>
 	/// binder interface

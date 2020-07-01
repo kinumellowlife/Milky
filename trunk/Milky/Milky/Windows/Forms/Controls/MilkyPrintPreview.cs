@@ -3,7 +3,7 @@ using System.Drawing;
 using System.Reflection;
 using System.Windows.Forms;
 
-namespace Milky.Windows.Forms
+namespace Milky.Windows.Forms.Controls
 {
 	/// <summary>
 	/// マウスでドラッグ可能なプリントプレビュー

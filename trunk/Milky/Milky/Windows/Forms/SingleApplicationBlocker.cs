@@ -2,7 +2,7 @@
 using System.Reflection;
 using System.Threading;
 
-namespace Milky.Windows
+namespace Milky.Windows.Forms
 {
 	/// <summary>
 	/// アプリケーションの２重起動を抑制する

@@ -1,7 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Windows.Forms;
+using System.Drawing;
+using System.Runtime.CompilerServices;
 
 namespace Milky.Windows.Forms.Jornal
 {
@@ -32,7 +32,6 @@ namespace Milky.Windows.Forms.Jornal
 		#endregion fields
 
 		#region properties
-
 		/// <summary>
 		/// ログ種類
 		/// </summary>
@@ -43,8 +42,7 @@ namespace Milky.Windows.Forms.Jornal
 			}
 			set
 			{
-				this._logType = value;
-				this.PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("LogType"));
+				SetProperty(this, ref this._logType, value);
 			}
 		}
 
@@ -58,8 +56,7 @@ namespace Milky.Windows.Forms.Jornal
 			}
 			set
 			{
-				this._lastTime = value;
-				this.PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("DateTime"));
+				SetProperty(this, ref this._lastTime, value);
 			}
 		}
 
@@ -73,8 +70,7 @@ namespace Milky.Windows.Forms.Jornal
 			}
 			set
 			{
-				this._message = value;
-				this.PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Message"));
+				SetProperty(this, ref this._message, value);
 			}
 		}
 
@@ -88,8 +84,7 @@ namespace Milky.Windows.Forms.Jornal
 			}
 			set
 			{
-				this._tag = value;
-				this.PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Tag"));
+				SetProperty(this, ref this._tag, value);
 			}
 		}
 
@@ -99,82 +94,12 @@ namespace Milky.Windows.Forms.Jornal
 
 		public event PropertyChangedEventHandler PropertyChanged;
 
+		protected void SetProperty<T>(object o, ref T field, T value, [CallerMemberName] string propertyName = null)
+		{
+			field = value;
+			PropertyChanged?.Invoke(o, new PropertyChangedEventArgs(propertyName));
+		}
+
 		#endregion events
-	}
-
-	public class MilkyLogListItem : MilkyLogItem
-	{
-		#region fields
-
-		private readonly ListViewItem listItem = null;
-
-		#endregion fields
-
-		#region construction
-
-		/// <summary>
-		/// 構築
-		/// </summary>
-		public MilkyLogListItem()
-		{
-			this.PropertyChanged += MilkyLogListItem_PropertyChanged;
-
-			this.listItem = new ListViewItem
-			{
-				//for logtype
-				Text = ""
-			};
-			//for datime
-			this.listItem.SubItems.Add("");
-			//for message
-			this.listItem.SubItems.Add("");
-		}
-
-		#endregion construction
-
-		#region static API
-
-		/// <summary>
-		/// ListViewItemに変換
-		/// </summary>
-		public static explicit operator ListViewItem(MilkyLogListItem mi)
-		{
-			return mi.listItem;
-		}
-
-		/// <summary>
-		/// カラムヘッダーのテキストを返す
-		/// </summary>
-		public static IEnumerable<ColumnHeader> MilkyLogHeaders()
-		{
-			yield return new ColumnHeader("type") { Text = "type" };
-			yield return new ColumnHeader("date") { Text = "date" };
-			yield return new ColumnHeader("message") { Text = "message" };
-			yield break;
-		}
-
-		#endregion static API
-
-		#region private API
-
-		private void MilkyLogListItem_PropertyChanged(object sender, PropertyChangedEventArgs e)
-		{
-			switch (e.PropertyName)
-			{
-				case "LogType":
-					this.listItem.Text = this.LogType.ToString();
-					break;
-
-				case "DateTime":
-					this.listItem.SubItems[1].Text = this.DateTime.ToString("yy/MM/dd HH:mm:ss");
-					break;
-
-				case "Message":
-					this.listItem.SubItems[2].Text = this.Message;
-					break;
-			}
-		}
-
-		#endregion private API
 	}
 }

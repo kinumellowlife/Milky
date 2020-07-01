@@ -2,28 +2,30 @@
 using System.ComponentModel;
 using System.Windows.Forms;
 
-namespace Milky.Windows.Forms
+namespace Milky.Windows.Forms.Controls
 {
-	public class MilkyRadioButton : RadioButton, IControlBinder, INotifyPropertyChanged
+	public class MilkyButton : Button, IControlBinder, INotifyPropertyChanged
 	{
-		#region fields
+		#region construct
 
-		public bool DefaultChecked { get; set; } = false;
+		public MilkyButton() : base()
+		{
+		}
 
-		#endregion fields
+		#endregion construct
 
 		#region properties
 
-		public new bool Checked {
+		public new string Text {
 			get
 			{
-				return base.Checked;
+				return base.Text;
 			}
 			set
 			{
-				base.Checked = value;
+				base.Text = value;
 
-				this.PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Checked"));
+				this.PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Text"));
 			}
 		}
 
@@ -34,14 +36,6 @@ namespace Milky.Windows.Forms
 		public event PropertyChangedEventHandler PropertyChanged;
 
 		#endregion events
-
-		#region construct
-
-		public MilkyRadioButton() : base()
-		{
-		}
-
-		#endregion construct
 
 		#region bind
 
@@ -56,6 +50,12 @@ namespace Milky.Windows.Forms
 		public void Bind(string propertyName, object attachObject, string attachPropertyName, Func<object, object> callback = null)
 			=> this.binder.Bind(this, propertyName, attachObject, attachPropertyName, callback);
 
+		public void Bind2<T1, T2>(ref T1 from, ref T2 to)
+		{
+			var fname = nameof(from);
+			var tname = nameof(to);
+		}
+
 		/// <summary>
 		/// un-bind property
 		/// </summary>
@@ -66,10 +66,5 @@ namespace Milky.Windows.Forms
 			=> this.binder.UnBind(propertyName, attachObject, attachPropertyName, callback);
 
 		#endregion bind
-
-		public void Reset()
-		{
-			this.Checked = this.DefaultChecked;
-		}
 	}
 }

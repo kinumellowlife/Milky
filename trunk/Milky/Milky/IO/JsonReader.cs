@@ -58,7 +58,7 @@ namespace Milky.IO
 							var jsonReader = new DataContractJsonSerializer(typeof(T));
 							return jsonReader.ReadObject(ms) as T;
 						}
-						catch (Exception)
+						catch (Exception e)
 						{
 							return null;
 						}

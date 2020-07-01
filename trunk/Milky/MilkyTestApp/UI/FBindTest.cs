@@ -4,18 +4,23 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.CompilerServices;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Milky.IO;
 
 namespace MilkyTestApp.UI
 {
 	public partial class FBindTest : Form
 	{
+		[DataContract]
 		private class BindableObject : INotifyPropertyChanged
 		{
 			private string _text = "";
+			[DataMember]
 			public string Text {
 				get
 				{
@@ -23,13 +28,12 @@ namespace MilkyTestApp.UI
 				}
 				set
 				{
-					this._text = value;
-
-					this.PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Text"));
+					SetProperty(ref this._text, value);
 				}
 			}
 
 			private bool _check = false;
+			[DataMember]
 			public bool Checked {
 				get
 				{
@@ -37,12 +41,17 @@ namespace MilkyTestApp.UI
 				}
 				set
 				{
-					this._check = value;
-					this.PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Checked"));
+					SetProperty(ref this._check, value);
 				}
 			}
 
 			public event PropertyChangedEventHandler PropertyChanged;
+
+			private void SetProperty<T>(ref T field, T value, [CallerMemberName] string propertyName = null)
+			{
+				field = value;
+				PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+			}
 		}
 
 		private BindableObject bo = new BindableObject();
@@ -54,20 +63,20 @@ namespace MilkyTestApp.UI
 			InitializeComponent();
 
 			//I want to do this : milkyButton1.Text = this.bo.Text;
-			milkyButton1.Bind("Text", this.bo, "Text");
+			milkyButton1.Bind(nameof(milkyButton1.Text), this.bo, nameof(this.bo.Text));
 
 			//I want to do this : milkyCheckBox1.Text = this.bo.Text;
-			milkyCheckBox1.Bind("Text", this.bo, "Text");
+			milkyCheckBox1.Bind(nameof(milkyButton1.Text), this.bo, nameof(this.bo.Text));
 
 			//I want to do this : milkyCheckBox1.Checked = this.bo.Checked;
-			milkyCheckBox1.Bind("Checked", this.bo, "Checked");
+			milkyCheckBox1.Bind(nameof(milkyCheckBox1.Checked), this.bo, nameof(this.bo.Checked));
 
 			//I want to do this : milkyCheckBox2.Text = this.bo.Text;
-			milkyCheckBox2.Bind("Text", this.bo, "Text");
+			milkyCheckBox2.Bind(nameof(this.milkyCheckBox2.Text), this.bo, nameof(this.bo.Text));
 
 			//I want to think Checked property is true or false by this.count value.
 			//Property update torigger is when this.bo.Text is changed.
-			milkyCheckBox2.Bind("Checked", this.bo, "Text", (o) =>
+			milkyCheckBox2.Bind( nameof(milkyCheckBox2.Checked), this.bo, nameof(this.bo.Text), (o) =>
 			{
 				if((this.count % 3) == 0)
 				{
@@ -96,6 +105,20 @@ namespace MilkyTestApp.UI
 				{ IsBackground = true };
 				this.bindTestThread.Start();
 			}
+		}
+
+		public void ReflectionCopy<T>(T dest, T src)
+		{
+			foreach (var property in dest.GetType().GetProperties())
+			{
+				property.SetValue(dest, property.GetValue(src));
+			}
+		}
+
+		private void button1_Click(object sender, EventArgs e)
+		{
+			var tmp = JsonReader.ReadJson<BindableObject>("{\"Text\":\"aaa\",\"Checked\":true}");
+			ReflectionCopy(this.bo, tmp);
 		}
 	}
 }

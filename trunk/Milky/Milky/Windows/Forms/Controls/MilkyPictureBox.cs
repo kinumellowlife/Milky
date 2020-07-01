@@ -1,14 +1,15 @@
 ﻿using System;
 using System.ComponentModel;
+using System.Drawing;
 using System.Windows.Forms;
 
-namespace Milky.Windows.Forms
+namespace Milky.Windows.Forms.Controls
 {
-	public class MilkyButton : Button, IControlBinder, INotifyPropertyChanged
+	public class MilkyPictureBox : PictureBox, IControlBinder, INotifyPropertyChanged
 	{
 		#region construct
 
-		public MilkyButton() : base()
+		public MilkyPictureBox() : base()
 		{
 		}
 
@@ -16,16 +17,16 @@ namespace Milky.Windows.Forms
 
 		#region properties
 
-		public new string Text {
+		public new Image Image {
 			get
 			{
-				return base.Text;
+				return base.Image;
 			}
 			set
 			{
-				base.Text = value;
+				base.Image = value;
 
-				this.PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Text"));
+				this.PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Image"));
 			}
 		}
 

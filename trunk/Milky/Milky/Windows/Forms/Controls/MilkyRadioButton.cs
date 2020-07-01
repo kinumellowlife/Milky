@@ -2,9 +2,9 @@
 using System.ComponentModel;
 using System.Windows.Forms;
 
-namespace Milky.Windows.Forms
+namespace Milky.Windows.Forms.Controls
 {
-	public class MilkyCheckBox : CheckBox, INotifyPropertyChanged
+	public class MilkyRadioButton : RadioButton, IControlBinder, INotifyPropertyChanged
 	{
 		#region fields
 
@@ -13,19 +13,6 @@ namespace Milky.Windows.Forms
 		#endregion fields
 
 		#region properties
-
-		public new string Text {
-			get
-			{
-				return base.Text;
-			}
-			set
-			{
-				base.Text = value;
-
-				this.PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Text"));
-			}
-		}
 
 		public new bool Checked {
 			get
@@ -50,7 +37,7 @@ namespace Milky.Windows.Forms
 
 		#region construct
 
-		public MilkyCheckBox() : base()
+		public MilkyRadioButton() : base()
 		{
 		}
 

@@ -5,7 +5,7 @@ using System.Windows.Forms;
 using Milky.Collections;
 using Milky.Extensions;
 
-namespace Milky.Windows.Forms
+namespace Milky.Windows.Forms.Controls
 {
 	/// <summary>
 	/// コンボボックスにキー・バリュー形式での操作を追加するアダプタ

@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Milky.Win32
 {
@@ -12,7 +8,6 @@ namespace Milky.Win32
 		///<summary>Usefull virtual keys to use</summary>
 		public enum VirtualKeys
 		{
-
 			/// <summary>Left Shift formatKey</summary>
 			LSHIFT = 0xA0,
 

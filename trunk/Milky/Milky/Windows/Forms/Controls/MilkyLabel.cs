@@ -8,7 +8,7 @@ using System.Windows.Forms;
 using Milky.Drawing;
 using Milky.Extensions;
 
-namespace Milky.Windows.Forms
+namespace Milky.Windows.Forms.Controls
 {
 	public class MilkyLabel : Label, INotifyPropertyChanged
 	{

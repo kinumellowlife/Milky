@@ -1,7 +1,7 @@
 ﻿using System.Drawing;
 using System.Windows.Forms;
 
-namespace Milky.Windows
+namespace Milky.Windows.Forms
 {
 	/// <summary>
 	/// ウィンドウをドラッグするだけで動かせるようにするクラス

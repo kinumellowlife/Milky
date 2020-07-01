@@ -1,15 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Drawing;
+using System.Drawing.Drawing2D;
+using System.Globalization;
 using System.Linq;
 using System.Windows.Forms;
 using Milky.Extensions;
+using Milky.Windows.Forms.Controls;
 
 namespace Milky.Windows.Forms.Jornal
 {
 	public class MilkyLogListView : ListView, INotifyPropertyChanged
 	{
 		#region fields
+
+		private ImageList imageList = new ImageList();
 
 		/// <summary>
 		/// アイテム全部
@@ -20,6 +26,8 @@ namespace Milky.Windows.Forms.Jornal
 		/// フィルタして表示するアイテムのallItemsに対する要素番号
 		/// </summary>
 		private List<int> filtered = new List<int>();
+
+		private Font headerFont = new Font("MS UI Gothic", 9);
 
 		/// <summary>
 		/// 表示フラグ
@@ -65,6 +73,22 @@ namespace Milky.Windows.Forms.Jornal
 		#region propperties
 
 		/// <summary>
+		/// ヘッダのフォント
+		/// </summary>
+		public Font HeaderFont {
+			get
+			{
+				return this.headerFont;
+			}
+			set
+			{
+				this.headerFont = value;
+				this.PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("HeaderFont"));
+				this.Invalidate();
+			}
+		}
+
+		/// <summary>
 		/// 表示モード
 		/// </summary>
 		public MilkyLogItem.MilkyLogTypeFlags ViewFlag {
@@ -94,6 +118,8 @@ namespace Milky.Windows.Forms.Jornal
 				this.Columns.Clear();
 				MilkyLogListItem.MilkyLogHeaders().ForEach(h => this.Columns.Add(h));
 			}
+			this.SmallImageList = this.imageList;
+			this.LargeImageList = this.imageList;
 			this.DoubleBuffered = true;
 			this.HideSelection = false;
 			this.FullRowSelect = true;
@@ -103,11 +129,167 @@ namespace Milky.Windows.Forms.Jornal
 			this.View = View.Details;
 			this.RetrieveVirtualItem += MilkyLogListView_RetrieveVirtualItem;
 			this.PropertyChanged += MilkyLogListView_PropertyChanged;
+			this.DrawColumnHeader += MilkyLogListView_DrawColumnHeader;
+			this.DrawItem += MilkyLogListView_DrawItem;
+			this.DrawSubItem += MilkyLogListView_DrawSubItem;
+			this.ItemMouseHover += MilkyLogListView_ItemMouseHover;
+			this.OwnerDraw = true;
 		}
+
+		private void MilkyLogListView_ItemMouseHover(object sender, ListViewItemMouseHoverEventArgs e)
+		{
+			var item = e.Item.Tag as MilkyLogListItem;
+			this.allItems.ForEach(i => i.Hover = false);
+			item.Hover = true;
+		}
+
+		//private void SetColumnWidth(MilkyLogListItem item)
+		//{
+		//	if ((!this.imageList.Images.ContainsKey(item.Id)) ||
+		//		(height!= this.imageList.Images[item.Id].Height))
+		//	{
+		//		var image = new Bitmap(1, (int)height * 2);
+		//		if (!this.imageList.Images.ContainsKey(item.Id))
+		//		{
+		//			this.imageList.Images.Add(item.Id, image);
+		//		}
+		//		else
+		//		{
+		//			this.imageList.Images.RemoveByKey(item.Id);
+		//			this.imageList.Images.Add(item.Id, image);
+		//			this.imageList.ImageSize = new Size(1, (int)height);
+		//		}
+		//	}	
+		//}	
+
+		private void MilkyLogListView_DrawSubItem(object sender, DrawListViewSubItemEventArgs e)
+		{
+			var item = e.Item.Tag as MilkyLogListItem;
+			ContentAlignment alignment = ContentAlignment.MiddleLeft;
+			ColorPair color = new ColorPair(Color.Black, Color.White);
+			
+			switch(e.ColumnIndex)
+			{
+				case 0:
+					alignment = item.LogTypeTextAlign;
+					color = item.TypeColor;
+					break;
+				case 1:
+					alignment = item.LogDateTextAlign;
+					color = item.DateColor;
+					break;
+				case 2:
+					alignment = item.LogMessageTextAlign;
+					color = item.MessageColor;
+					break;
+			}
+
+			using (StringFormat sf = new StringFormat())
+			{
+				switch( alignment )
+				{
+					case ContentAlignment.BottomCenter:
+					case ContentAlignment.MiddleCenter:
+					case ContentAlignment.TopCenter:
+						sf.Alignment = StringAlignment.Center;
+						break;
+					case ContentAlignment.BottomLeft:
+					case ContentAlignment.MiddleLeft:
+					case ContentAlignment.TopLeft:
+						sf.Alignment = StringAlignment.Near;
+						break;
+					case ContentAlignment.BottomRight:
+					case ContentAlignment.MiddleRight:
+					case ContentAlignment.TopRight:
+						sf.Alignment = StringAlignment.Far;
+						break;
+				}
+
+				switch( alignment )
+				{
+					case ContentAlignment.BottomCenter:
+					case ContentAlignment.BottomLeft:
+					case ContentAlignment.BottomRight:
+						sf.LineAlignment = StringAlignment.Near;
+						break;
+					case ContentAlignment.MiddleCenter:
+					case ContentAlignment.MiddleLeft:
+					case ContentAlignment.MiddleRight:
+						sf.LineAlignment = StringAlignment.Center;
+						break;
+					case ContentAlignment.TopCenter:
+					case ContentAlignment.TopLeft:
+					case ContentAlignment.TopRight:
+						sf.LineAlignment = StringAlignment.Far;
+						break;
+				}
+
+				if( e.ColumnIndex > 0)
+				{
+					if ((e.ItemState & ListViewItemStates.Selected) == 0)
+					{
+						e.DrawBackground();
+					}
+
+					// Draw the subitem text in red to highlight it. 
+					e.Graphics.DrawString(e.SubItem.Text, this.Font, new SolidBrush(color.Fore), e.Bounds, sf);
+				}
+				else
+				{
+					e.DrawText();
+				}
+			}
+		}
+
+		private void MilkyLogListView_DrawItem(object sender, DrawListViewItemEventArgs e)
+		{
+			if ((e.State & ListViewItemStates.Selected) != 0)
+			{
+				// Draw the background and focus rectangle for a selected item.
+				e.Graphics.FillRectangle(new SolidBrush(this.BackColor), e.Bounds);
+				e.DrawFocusRectangle();
+			}
+			else
+			{
+				// Draw the background for an unselected item.
+				using (LinearGradientBrush brush = new LinearGradientBrush(e.Bounds, this.ForeColor,this.ForeColor, LinearGradientMode.Horizontal))
+				{
+					e.Graphics.FillRectangle(brush, e.Bounds);
+				}
+			}
+
+			// Draw the item text for views other than the Details view.
+			if (this.View != View.Details)
+			{
+				e.DrawText();
+			}
+		}	
 
 		#endregion construction
 
 		#region private API
+
+		private void MilkyLogListView_DrawColumnHeader(object sender, DrawListViewColumnHeaderEventArgs e)
+		{
+			using (StringFormat sf = new StringFormat())
+			{
+				switch (e.Header.TextAlign)
+				{
+					case HorizontalAlignment.Center:
+						sf.Alignment = StringAlignment.Center;
+						break;
+					case HorizontalAlignment.Right:
+						sf.Alignment = StringAlignment.Far;
+						break;
+				}
+
+				// Draw the standard header background.
+				e.DrawBackground();
+
+				// Draw the header text.
+				e.Graphics.DrawString(e.Header.Text, this.headerFont, Brushes.Black, e.Bounds, sf);
+			}
+		}
 
 		/// <summary>
 		/// プロパティ変更通知

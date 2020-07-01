@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 using Milky.Extensions;
+using Milky.Windows.Forms.Controls;
 
-namespace Milky.Windows.Forms
+namespace Milky.Windows.Forms.Controls
 {
 	public class MilkyCheckBoxGroup : List<CheckBox>
 	{

@@ -2,9 +2,9 @@
 using System.ComponentModel;
 using System.Windows.Forms;
 
-namespace Milky.Windows.Forms
+namespace Milky.Windows.Forms.Controls
 {
-	public class MilkyNumericUpDown : NumericUpDown, INotifyPropertyChanged
+	public class MilkyCheckBox : CheckBox, INotifyPropertyChanged
 	{
 		#region fields
 
@@ -14,16 +14,29 @@ namespace Milky.Windows.Forms
 
 		#region properties
 
-		public new decimal Value {
+		public new string Text {
 			get
 			{
-				return base.Value;
+				return base.Text;
 			}
 			set
 			{
-				base.Value = value;
+				base.Text = value;
 
-				this.PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Value"));
+				this.PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Text"));
+			}
+		}
+
+		public new bool Checked {
+			get
+			{
+				return base.Checked;
+			}
+			set
+			{
+				base.Checked = value;
+
+				this.PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Checked"));
 			}
 		}
 
@@ -37,7 +50,7 @@ namespace Milky.Windows.Forms
 
 		#region construct
 
-		public MilkyNumericUpDown() : base()
+		public MilkyCheckBox() : base()
 		{
 		}
 
@@ -66,5 +79,10 @@ namespace Milky.Windows.Forms
 			=> this.binder.UnBind(propertyName, attachObject, attachPropertyName, callback);
 
 		#endregion bind
+
+		public void Reset()
+		{
+			this.Checked = this.DefaultChecked;
+		}
 	}
 }

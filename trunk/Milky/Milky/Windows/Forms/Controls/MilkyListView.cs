@@ -5,7 +5,7 @@ using System.Linq;
 using System.Windows.Forms;
 using Milky.Extensions;
 
-namespace Milky.Windows.Forms
+namespace Milky.Windows.Forms.Controls
 {
 	public class MilkyListViewItem
 	{

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 
-namespace Milky.Windows
+namespace Milky.Windows.Forms.Controls
 {
 	public static class ControlInvoker
 	{
@@ -9,14 +9,18 @@ namespace Milky.Windows
 		{
 			if (control.IsHandleCreated)
 			{
-				if (control.Parent.InvokeRequired)
+				if (control.InvokeRequired)
 				{
-					control.Parent.Invoke((MethodInvoker)(() => action(control)));
+					control.Invoke((MethodInvoker)(() => action(control)));
 				}
 				else
 				{
 					action(control);
 				}
+			}
+			else
+			{
+				action(control);
 			}
 		}
 
@@ -24,14 +28,18 @@ namespace Milky.Windows
 		{
 			if (control.IsHandleCreated)
 			{
-				if (control.Parent.InvokeRequired)
+				if (control.InvokeRequired)
 				{
-					control.Parent.Invoke(new Action<T, T>(action));
+					control.Invoke(new Action<T, T>(action));
 				}
 				else
 				{
 					action(control, target);
 				}
+			}
+			else
+			{
+				action(control, target);
 			}
 		}
 	}

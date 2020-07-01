@@ -1,7 +1,7 @@
 ﻿using System.Drawing;
 using Milky.Algorithm;
 
-namespace Milky.Windows
+namespace Milky.Windows.Forms
 {
 	public class ColorPair : Pair<Color, Color>
 	{

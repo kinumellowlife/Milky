@@ -1,32 +1,29 @@
 ﻿using System;
 using System.ComponentModel;
-using System.Drawing;
 using System.Windows.Forms;
 
-namespace Milky.Windows.Forms
+namespace Milky.Windows.Forms.Controls
 {
-	public class MilkyPictureBox : PictureBox, IControlBinder, INotifyPropertyChanged
+	public class MilkyNumericUpDown : NumericUpDown, INotifyPropertyChanged
 	{
-		#region construct
+		#region fields
 
-		public MilkyPictureBox() : base()
-		{
-		}
+		public bool DefaultChecked { get; set; } = false;
 
-		#endregion construct
+		#endregion fields
 
 		#region properties
 
-		public new Image Image {
+		public new decimal Value {
 			get
 			{
-				return base.Image;
+				return base.Value;
 			}
 			set
 			{
-				base.Image = value;
+				base.Value = value;
 
-				this.PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Image"));
+				this.PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Value"));
 			}
 		}
 
@@ -37,6 +34,14 @@ namespace Milky.Windows.Forms
 		public event PropertyChangedEventHandler PropertyChanged;
 
 		#endregion events
+
+		#region construct
+
+		public MilkyNumericUpDown() : base()
+		{
+		}
+
+		#endregion construct
 
 		#region bind
 
